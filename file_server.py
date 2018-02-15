@@ -164,5 +164,5 @@ class PathView(MethodView):
 path_view = PathView.as_view('path_view')
 app.add_url_rule('/', view_func=path_view)
 app.add_url_rule('/<path:p>', view_func=path_view)
-
-app.run('0.0.0.0', 8000, threaded=True, debug=False)
+#Change to 0.0.0.0 to make it externally visible
+app.run('127.0.0.1', 8000, threaded=True, debug=False)

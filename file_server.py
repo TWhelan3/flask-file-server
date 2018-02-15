@@ -8,6 +8,7 @@ import re
 import stat
 import json
 import mimetypes
+import time
 
 app = Flask(__name__, static_url_path='/assets', static_folder='assets')
 
@@ -48,7 +49,7 @@ def icon_fmt(filename):
 
 @app.template_filter('humanize')
 def time_humanize(timestamp):
-    mdate = datetime.utcfromtimestamp(timestamp)
+    mdate = datetime.utcfromtimestamp(timestamp-time.timezone)
     return humanize.naturaltime(mdate)
 
 def get_type(mode):
